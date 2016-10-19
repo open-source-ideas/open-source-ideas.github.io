@@ -22,18 +22,26 @@ function generate_label_html (labels) {
   return label_string;
 }
 
+function create_modal_id (str) {
+  return 'modal' + str.replace(/[\W\d]/g, '');
+}
+
 function show_issues_in_dom (issues) {
   issues.forEach(function (issue) {
-    $('#cards .row').append("<div class='col s12'>" +
+    $('#cards .row').append(
+      "<div class='col s12'>" +
       "<div class='card'>" +
       "<div class='card-content'>" +
-      "<span class='card-title teal-text text-darken-3'>" +
+      "<span class='card-title teal-text text-darken-4'>" +
       issue.title +
       "</span> " +
-      generate_label_html(issue.labels) +
-      "<p>" + issue.body + "...</p>" +
-      "</div><div class='card-action'><a target='_blank' href='" +
-      issue.html_url + "'>Participate</a></div></div></div>");
+      generate_label_html(issue.labels) + "<p>" +
+      remove_markdown(issue.body)
+        .replace(/^Project description\s/, '') +
+      "</p>" + "</div><div class='card-action'><a target='_blank' href='" +
+      issue.html_url + "'>Participate</a>" +
+      "</div></div></div>"
+    );
 
   });
 }
