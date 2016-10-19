@@ -8,6 +8,7 @@ function display_issues (flags = []) {
     url: URL,
     success: function (data) {
       show_issues_in_dom(data);
+      $('.progress').slideUp();
     }
   });
 }
