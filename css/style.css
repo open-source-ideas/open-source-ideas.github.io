@@ -1,0 +1,7 @@
+#cards {
+  margin-top: 1em;
+}
+
+.card-title, .chip {
+  vertical-align: middle;
+}
