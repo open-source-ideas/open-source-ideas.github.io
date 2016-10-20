@@ -23,10 +23,6 @@ function generate_label_html (labels) {
   return label_string;
 }
 
-function create_modal_id (str) {
-  return 'modal' + str.replace(/[\W\d]/g, '');
-}
-
 function show_issues_in_dom (issues) {
   issues.forEach(function (issue) {
     $('#cards .row').append(
@@ -39,8 +35,11 @@ function show_issues_in_dom (issues) {
       generate_label_html(issue.labels) + "<p>" +
       remove_markdown(issue.body)
         .replace(/^Project description\s/, '') +
-      "</p>" + "</div><div class='card-action'><a target='_blank' href='" +
-      issue.html_url + "'>Participate</a>" +
+      "</p>" + "</div><div class='card-action'>" +
+      "<a href='" + (window.location.href).replace(/\w+\..+/, '') +
+      "issue.html?issue=" + issue.number +
+      "'>Read more</a>" +
+      "<a target='_blank' href='" + issue.html_url + "'>View on GitHub</a>" +
       "</div></div></div>"
     );
 
