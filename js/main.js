@@ -28,7 +28,7 @@ function create_issue_url (issue) {
   if (loc.slice(-1) == '/') {
     return loc + 'issue.html?issue=' + issue;
   }
-  return loc.replace(/\w+\..+/, '') + 'issue.html?issue=' + issue;
+  return loc.replace(/\w+\.[^\.]+/, '') + 'issue.html?issue=' + issue;
 }
 
 function show_issues_in_dom (issues) {
