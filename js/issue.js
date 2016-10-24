@@ -34,6 +34,9 @@ $(document).ready(function () {
     success: function (data) {
       xhr_comments_done = true;
       remove_progress();
+      if (data.length === 0) {
+        $('#comments').append('<i>No comments.</i>');
+      }
       data.forEach(function (comment) {
         $('#comments').append(
           "<div class='col s12'><div class='card-panel'>" +
