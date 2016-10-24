@@ -25,7 +25,7 @@ function generate_label_html (labels) {
 
 function create_issue_url (issue) {
   var loc = window.location.href;
-  if (loc[-1] == '/') {
+  if (loc.slice(-1) == '/') {
     return loc + 'issue.html?issue=' + issue;
   }
   return loc.replace(/\w+\..+/, '') + 'issue.html?issue=' + issue;
