@@ -21,6 +21,7 @@ $(document).ready(function () {
       remove_progress();
       document.title = data.title;
       $('#issue-title').html(data.title);
+      $('#issue-a').attr('href', data.html_url);
       $('#issue-body').html(markdown.toHTML(data.body)
         .replace(/h[1-6]/g, 'h5')
         .replace('<img', "<img class='responsive-img'")

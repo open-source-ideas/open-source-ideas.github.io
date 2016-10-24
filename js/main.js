@@ -23,6 +23,14 @@ function generate_label_html (labels) {
   return label_string;
 }
 
+function create_issue_url (issue) {
+  var loc = window.location.href;
+  if (loc[-1] == '/') {
+    return loc + 'issue.html?issue=' + issue;
+  }
+  return loc.replace(/\w+\..+/, '') + 'issue.html?issue=' + issue;
+}
+
 function show_issues_in_dom (issues) {
   issues.forEach(function (issue) {
     $('#cards .row').append(
@@ -36,8 +44,7 @@ function show_issues_in_dom (issues) {
       remove_markdown(issue.body)
         .replace(/^Project description\s/, '') +
       "</p>" + "</div><div class='card-action'>" +
-      "<a href='" + (window.location.href).replace(/\w+\..+/, '') +
-      "issue.html?issue=" + issue.number +
+      "<a href='" + create_issue_url(issue.number) +
       "'>Read more</a>" +
       "<a target='_blank' href='" + issue.html_url + "'>View on GitHub</a>" +
       "</div></div></div>"
