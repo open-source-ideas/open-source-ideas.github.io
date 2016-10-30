@@ -3,7 +3,7 @@
 
 var URL = "https://api.github.com/repos/mikaelbr/open-source-ideas/issues";
 
-function display_issues (flags = []) {
+function display_issues () {
   $.get({
     url: URL,
     success: function (data) {
