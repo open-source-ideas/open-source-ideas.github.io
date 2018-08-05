@@ -1,7 +1,7 @@
 // This is where the magic happens
 // Written by Fredrik August Madsen-Malmo (github@fredrikaugust)
 
-var URL = "https://api.github.com/repos/mikaelbr/open-source-ideas/issues";
+var URL = "https://api.github.com/repos/open-source-ideas/open-source-ideas/issues";
 
 function display_issues () {
   $.get({

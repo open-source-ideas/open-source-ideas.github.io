@@ -1,6 +1,6 @@
 # Website for open source ideas
 
-This is a simple website I set up to get the latest ideas (submitted in the form of issues to mikaelbr/open-source-ideas) shown in a simple manner on a website.
+This is a simple website I set up to get the latest ideas (submitted in the form of issues to open-source-ideas/open-source-ideas) shown in a simple manner on a website.
 
 The website uses materializecss for the front-end, so we could focus more on the logic of the website, rather than the design.
 
