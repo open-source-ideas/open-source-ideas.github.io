@@ -9,3 +9,8 @@
 .progress {
   margin-top: 0;
 }
+
+ul.pagination {
+	display: flex;
+	justify-content: center;
+}
