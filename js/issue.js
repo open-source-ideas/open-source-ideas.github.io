@@ -39,11 +39,13 @@ $(document).ready(function () {
       }
       data.forEach(function (comment) {
         $('#comments').append(
-          "<div class='col s12'><div class='card-panel'>" +
-          "<strong>" + comment.user.login + "</strong><br>" +
-          marked(comment.body)
-            .replace('<img', "<img class='responsive-img'") +
-          "</div></div>"
+          `<div class='col s12'>
+            <div class='card-panel'>
+              <strong>${comment.user.login}</strong>
+              <br>
+              ${marked(comment.body).replace('<img', "<img class='responsive-img'")}
+            </div>
+          </div>`
         );
       });
     }
