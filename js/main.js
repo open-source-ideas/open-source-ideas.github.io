@@ -50,21 +50,21 @@ function create_issue_url (issue) {
 function show_issues_in_dom (issues, pages) {
   issues.forEach(function (issue) {
     $('#cards .row').append(
-      "<div class='col s12'>" +
-      "<div class='card'>" +
-      "<div class='card-content'>" +
-      "<span class='card-title teal-text text-darken-4'>" +
-      issue.title +
-      "</span> " +
-      generate_label_html(issue.labels) + "<p>" +
-      marked(issue.body)
-        .replace('<img', '<img class="responsive-img"')
-        .replace(/h[1-6]/g, 'h5') +
-      "</p>" + "</div><div class='card-action'>" +
-      "<a href='" + create_issue_url(issue.number) +
-      "'>Read more</a>" +
-      "<a target='_blank' href='" + issue.html_url + "'>View on GitHub</a>" +
-      "</div></div></div>"
+      `<div class='col s12'>
+        <div class='card'>
+          <div class='card-content'>
+            <span class='card-title teal-text text-darken-4'>
+              ${issue.title}
+            </span>
+            ${generate_label_html(issue.labels)}
+            <p>${marked(issue.body).replace('<img', '<img class="responsive-img"').replace(/h[1-6]/g, 'h5')}</p>
+          </div>
+          <div class='card-action'>
+            <a href='${create_issue_url(issue.number)}'>Read more</a>
+            <a target='_blank' href='${issue.html_url}'>View on GitHub</a>
+          </div>
+        </div>
+      </div>`
     );
 
   });
@@ -73,9 +73,9 @@ function show_issues_in_dom (issues, pages) {
   for (var i = 1; i <= pages; i++) {
     var class_ = page == i ? "active" : "waves-effect"
     $('.pagination').append(
-      "<li class='" + class_ + "'>" + 
-        "<a href='" + window.location.href.replace(/(?:\/[^\/\r\n]*)$/, '') + "?page=" + i + "''>" + i +"</a>" + 
-      "</li>"
+      `<li class='${class_}'> 
+        <a href='${window.location.href.replace(/(?:\/[^\/\r\n]*)$/, '')}?page=${i}''>${i}</a>
+      </li>`
     )
   }
 }
