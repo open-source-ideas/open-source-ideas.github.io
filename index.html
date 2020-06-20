@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Open Source Ideas</title>
+<title>Open Source Ideas</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ever had a cool idea for an Open Source project but didn't have the time to implement it yourself? Let someone else give it a try! ">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="icon" href="https://raw.githubusercontent.com/open-source-ideas/meta/master/graphics/logo.png">
+<link rel="shortcut icon" href="https://raw.githubusercontent.com/open-source-ideas/meta/master/graphics/logo.png">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif; scroll-behavior: smooth;}
+pre {overflow-x:scroll;padding:4px;background-color:#e0e0e0;}
+img {width:100%;}
+w3-tag w3-light-grey w3-small w3-margin-bottom {cursor: pointer;}
+</style>
+<body class="w3-light-grey">
 
-    <!-- css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class='navbar-fixed'>
-      <nav class='teal lighten-1'>
-        <div class="nav-wrapper">
-          <div class="container">
-            <a href="#" class="brand-logo">
-              Open Source Ideas
-            </a>
-          </div>
-        </div>
-        <div class="progress">
-          <div class="indeterminate"></div>
-        </div>
-      </nav>
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32">
+  <h1><b>Open Source Ideas</b></h1>
+  <p>Ever had a cool idea for an Open Source project but didn't have the time to implement it yourself? Let someone else give it a try!</p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12 articles"><br></div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+    <div class="w3-container w3-white">
+      <h4><b>OSI Initiative</b></h4>
+      <p>For many working with Open Source, good ideas or cool projects aren't the limiting factor. Time is. But there are a lot of different people out there with various levels of experience and background. Some want to create open source projects, but don't know where to start or what to create. Why don't we solve both of these problems with each other's help?</p>
     </div>
+  </div><hr>
 
-    <div class="container" id="cards">
-      <div class="row">
-      </div>
-
-      <ul class="pagination"></ul>
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Labels</h4>
     </div>
+    <div class="w3-container w3-white">
+    <p class='labels'>
+      <span onclick='labeled("")' class='w3-tag w3-light-grey w3-small w3-margin-bottom'>None</span>
+    </p>
+    </div>
+  </div>
 
-    <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-    <script src="js/marked.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button onclick="previous()" class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+  <button onclick="next()" class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<!-- Back To Top -->
+<button onclick="scrollToTop()" class="w3-red w3-btn w3-round-xxlarge w3-margin to-top" style="position:fixed;bottom:0;right:0;display;none;">TOP</button>
+
+</body>
+
+<script src="marked.js" charset="utf-8"></script>
+<script src="main.js" charset="utf-8"></script>
+
 </html>
