@@ -1,11 +1,11 @@
 // Get information about a specific issue
 // Written by Fredrik August Madsen-Malmo (github@fredrikaugust)
 
-var URL = "https://api.github.com/repos/open-source-ideas/open-source-ideas/issues/" +
-  (window.location.href).replace(/.+=/, '');
+const URL = "https://api.github.com/repos/open-source-ideas/open-source-ideas/issues/" +
+    (window.location.href).replace(/.+=/, '');
 
-var xhr_issue_done = false;
-var xhr_comments_done = false;
+let xhr_issue_done = false;
+let xhr_comments_done = false;
 
 function remove_progress () {
   if (xhr_issue_done && xhr_comments_done) {

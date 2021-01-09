@@ -3,9 +3,9 @@
 
 // by default github paginates all responses with 30 items, we can change this by specifying the per-page property
 // Also, we need to specify what page we need so we can paginate on the frontend as well.
-var perPage = 20
-var page = window.location.href.match(/page=(\d+)/) ? window.location.href.match(/page=(\d+)/)[1] : 1
-var URL = "https://api.github.com/repos/open-source-ideas/open-source-ideas/issues?per_page="+perPage+"&page="+page;
+const perPage = 20;
+const page = window.location.href.match(/page=(\d+)/) ? window.location.href.match(/page=(\d+)/)[1] : 1;
+const URL = "https://api.github.com/repos/open-source-ideas/open-source-ideas/issues?per_page=" + perPage + "&page=" + page;
 
 
 function display_issues () {
@@ -14,10 +14,10 @@ function display_issues () {
     success: function (data, status, xhr) {
       // the total number of pages we have in the pagination is gotten from the response header (Link)
       // However, to extract it, this is the simplest hack I could come up with.
-      var str = xhr.getResponseHeader('Link')
+      const str = xhr.getResponseHeader('Link');
 
       // if we can't find rel=last, then this is the last page
-      pages = str.indexOf('rel="last"') > 0 ? parseInt(str[str.indexOf('rel="last"') - 4]) : page
+      let pages = str.indexOf('rel="last"') > 0 ? parseInt(str[str.indexOf('rel="last"') - 4]) : page;
 
       show_issues_in_dom(data, pages);
       $('.progress').slideUp();
@@ -26,7 +26,7 @@ function display_issues () {
 }
 
 function generate_label_html (labels) {
-  var label_string = "";
+  let label_string = "";
 
   labels.forEach(function (label) {
     label_string += "<div class='chip'>" + label.name + "</div>";
@@ -36,7 +36,7 @@ function generate_label_html (labels) {
 }
 
 function create_issue_url (issue) {
-  var loc = window.location.href;
+  const loc = window.location.href;
   // if the location ends with a slash
   if (loc.slice(-1) == '/') {
     return loc + 'issue.html?issue=' + issue;
@@ -44,7 +44,7 @@ function create_issue_url (issue) {
     // if a url query has been applied, match the last / and replace everything onwards with the issue url
     return loc.replace(/(?:\/[^\/\r\n]*)$/, '/') + 'issue.html?issue=' + issue;
   }
-  return loc.replace(/\w+\.[^\.]+$/, '') + 'issue.html?issue=' + issue;
+  return loc.replace(/\w+\.[^.]+$/, '') + 'issue.html?issue=' + issue;
 }
 
 function show_issues_in_dom (issues, pages) {
@@ -70,13 +70,13 @@ function show_issues_in_dom (issues, pages) {
   });
 
   // let's add the pagination links
-  for (var i = 1; i <= pages; i++) {
-    var class_ = page == i ? "active" : "waves-effect"
+  for (let i = 1; i <= pages; i++) {
+    const class_ = page == i ? "active" : "waves-effect";
     $('.pagination').append(
       `<li class='${class_}'> 
         <a href='${window.location.href.replace(/(?:\/[^\/\r\n]*)$/, '')}?page=${i}''>${i}</a>
       </li>`
-    )
+    );
   }
 }
 
