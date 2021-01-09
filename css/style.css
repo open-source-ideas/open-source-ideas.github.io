@@ -14,3 +14,17 @@ ul.pagination {
 	display: flex;
 	justify-content: center;
 }
+
+.brand-logo {
+    white-space: nowrap;
+}
+
+.container {
+    overflow-wrap: anywhere;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+}
